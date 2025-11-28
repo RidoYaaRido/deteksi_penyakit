@@ -169,7 +169,7 @@ export default {
       },
       prediction: null,
       loading: false,
-      apiUrl: 'http://localhost:5000/api'
+      apiUrl: '/api'
     };
   },
   computed: {
