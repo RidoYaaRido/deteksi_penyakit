@@ -2,27 +2,27 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
+      "src": "BE/app.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb" }
     },
     {
-      "src": "package.json",
+      "src": "FE/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "installCommand": "npm install",
-        "buildCommand": "npm run build"
+        "installCommand": "npm install --prefix FE",
+        "buildCommand": "npm run build --prefix FE"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "app.py"
+      "dest": "BE/app.py"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/$1"
+      "dest": "/FE/dist/$1"
     }
   ],
   "env": {
