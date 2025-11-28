@@ -26,6 +26,9 @@
     "env": {
       "node": true
     },
+"engines": {
+  "node": ">=18.0.0"
+},
     "extends": [
       "plugin:vue/vue3-essential",
       "eslint:recommended"
