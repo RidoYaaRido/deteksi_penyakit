@@ -10,17 +10,25 @@
       "src": "FE/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "installCommand": "npm install --prefix FE",
+        // Ganti perintah instalasi yang standar:
+        // PENTING: Pindah ke direktori FE untuk instalasi
+        "installCommand": "npm install --prefix FE", 
+        
+        // Ganti perintah build yang standar:
+        // PENTING: Pindah ke direktori FE untuk build
         "buildCommand": "npm run build --prefix FE"
       }
     }
   ],
   "routes": [
+    // Route API (backend)
     {
       "src": "/api/(.*)",
       "dest": "BE/app.py"
     },
+    // Route Frontend (file statis)
     {
+      // Output build Vue CLI default adalah 'dist' di dalam folder FE
       "src": "/(.*)",
       "dest": "/FE/dist/$1"
     }
