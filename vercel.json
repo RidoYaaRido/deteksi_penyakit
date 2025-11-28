@@ -10,16 +10,22 @@
       "src": "FE/package.json",
       "use": "@vercel/static-build",
       "config": {
-       
-        "buildCommand": "cd FE && npm install && npm run build"
+        // PERBAIKAN FINAL UNTUK PERMISSION DENIED:
+        // 1. cd FE: Pindah ke folder frontend.
+        // 2. npm install: Instal dependencies.
+        // 3. chmod +x ... : Paksa binary vue-cli-service untuk executable.
+        // 4. npm run build: Jalankan build.
+        "buildCommand": "cd FE && npm install && chmod +x ./node_modules/.bin/vue-cli-service && npm run build"
       }
     }
   ],
   "routes": [
+    // ROUTE BACKEND: /api/* menunjuk ke BE/app.py
     {
       "src": "/api/(.*)",
       "dest": "BE/app.py"
     },
+    // ROUTE FRONTEND: / menunjuk ke /FE/dist/$1
     {
       "src": "/(.*)",
       "dest": "/FE/dist/$1"
