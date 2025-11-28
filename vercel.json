@@ -10,19 +10,13 @@
       "src": "FE/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "cd FE && npx vue-cli-service build" 
+        "buildCommand": "cd FE && npm run build" 
       }
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "BE/app.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/FE/dist/$1"
-    }
+    { "src": "/api/(.*)", "dest": "BE/app.py" },
+    { "src": "/(.*)", "dest": "/FE/dist/$1" }
   ],
   "env": {
     "FLASK_ENV": "production"
