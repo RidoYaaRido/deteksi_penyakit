@@ -10,7 +10,7 @@
       "src": "FE/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "cd FE && npm install && chmod +x ./node_modules/.bin/vue-cli-service && npm run build"
+        "buildCommand": "cd FE && npm install && npx vue-cli-service build"
       }
     }
   ],
