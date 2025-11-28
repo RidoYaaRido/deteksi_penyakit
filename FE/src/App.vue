@@ -169,7 +169,7 @@ export default {
       },
       prediction: null,
       loading: false,
-      apiUrl: '/api'
+      apiUrl: 'https://deteksi-penyakit-chi.vercel.app/api'
     };
   },
   computed: {
